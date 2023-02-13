@@ -4,14 +4,10 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
-
 @RunWith(Parameterized.class)
 public class LionHasManeParametrizedTest {
     private final String lionGender;
     private final boolean mane;
-
-
     public LionHasManeParametrizedTest(String lionGender, boolean mane){
         this.lionGender = lionGender;
         this.mane = mane;
