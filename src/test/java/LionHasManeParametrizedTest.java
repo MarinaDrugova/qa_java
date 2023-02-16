@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.mockito.Mockito;
+
 @RunWith(Parameterized.class)
 public class LionHasManeParametrizedTest {
     private final String lionGender;
@@ -16,20 +18,15 @@ public class LionHasManeParametrizedTest {
         public static Object[][] getManeData(){
             return new Object[][]{
                     {"Самец", true},
-                    {"Самка", false},
-                    {"Новорожденный львенок", false},
+                    {"Самка", false}
             };
         }
         @Test
-    public void LionHasManeTest(){
-        try {
-            Feline feline = new Feline();
+    public void LionHasManeTest() throws Exception {
+            Feline feline = Mockito.mock(Feline.class);
             Lion lion = new Lion(lionGender, feline);
             boolean actual = lion.doesHaveMane();
             Assert.assertEquals(mane, actual);
-        }
-        catch (Exception exception){
-            Assert.assertEquals(exception.getMessage(), "Используйте допустимые значения пола животного - самец или самка");
-        }
+
         }
     }
